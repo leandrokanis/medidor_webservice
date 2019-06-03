@@ -11,7 +11,11 @@ class CollectsController {
     $collect = new Collect($temp, $humd);
     return $collect->create();
 
-    // header("Location: index.php");
+  }
+
+  public function index(){
+    $connection = new Connection();
+    return $connection->index();
   }
 
 }
