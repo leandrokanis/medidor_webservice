@@ -1,7 +1,8 @@
 <?php
-  include("connect.php");
+  include("config/connect.php");
 
-  $link=Connection();
+  $connection = new Connection();
+  $link = $connection->connect();
 
   $temp = $_GET["temp"];
   $humd = $_GET["humd"];
