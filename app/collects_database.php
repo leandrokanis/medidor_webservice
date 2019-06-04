@@ -37,20 +37,21 @@ class Connection {
      return $obj;
    }
 
+   public function destroy($id){
+     $link = $this->connect();
+     $query = "DELETE FROM `dth22` WHERE `dth22`.`id` = $id;";
+     if(mysqli_query($link, $query)){
+       $message = "Medição " . $id . " foi removida";
+     }
+     mysqli_close($link);
+     return $message;
+   }
+
    public function index(){
      $link = $this->connect();
-
-      $myArray = array();
-      if ($result = $link->query("SELECT * FROM `dth22`;")) {
-        $tempArray = array();
-        while($row = $result->fetch_object()) {
-          $tempArray = $row;
-          array_push($myArray, $tempArray);
-        }
-      }
-
+     $result = $link->query("SELECT * FROM `dth22`;");
      mysqli_close($link);
-     return $myArray;
+     return $result;
    }
 
 }

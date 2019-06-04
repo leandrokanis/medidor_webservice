@@ -18,6 +18,11 @@ class CollectsController {
     return $connection->index();
   }
 
+  public function delete(){
+    $connection = new Connection();
+    return $connection->destroy($_GET["id"]);
+  }
+
 }
 
 ?>

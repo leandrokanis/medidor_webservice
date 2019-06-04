@@ -1,6 +1,6 @@
 <?php
 
-include("./config/connection.php");
+include("collects_database.php");
 
 class Collect {
 
@@ -12,6 +12,11 @@ class Collect {
   public function create(){
     $connection = new Connection();
     return $connection->save($this->temp, $this->humd);
+  }
+
+  public static function destroy($id){
+    $connection = new Connection();
+    return $connection->destroy($id);
   }
 
 }
